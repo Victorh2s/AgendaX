@@ -1,0 +1,53 @@
+
+<%- include('include/head')%>
+<%- include('include/nav')%>
+  
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-3">
+      <h1 class=" text-center">Agenda</h1>
+      <p class="text-center lead">Contatos</p>
+
+      <%- include('include/message') %>
+      <% if(contatos.length > 0) {%>
+      <div class="responsive-table">
+        <table class="table my-3">
+          <% contatos.forEach(contato =>{ %>
+          <tr>
+            <td><%= contato.nome %></td>
+            <td><%= contato.sobrenome %></td>
+            <td><%= contato.email %></td>
+            <td><%= contato.telefone %></td>
+            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+            <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+          </tr>
+          <div class="text-center mt-15">
+            <a href="/contato/index" class="btn btn-primary">Cadastrar<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+            </svg></a>
+          </div>
+          <% }) %>
+        </table>
+      </div>
+      <% } else {%>
+        <p class="text-center lead">Não existem contatos na sua agenda.</p>
+        <div class="text-center mt-15">
+          <a href="/contato/index" class="btn btn-primary">Cadastrar</a>
+        </div>
+        <%}%>
+   </div>
+
+    <div class="col-lg-2"></div>
+
+  </div>
+</div>
+
+
+<%- include('include/footer')%>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+  
