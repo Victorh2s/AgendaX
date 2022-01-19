@@ -14,8 +14,6 @@ mongooese.connect(process.env.CONNECTIONSTRING)
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash =  require('connect-flash')
-
-
 const routes = require('./routes')
 const path = require('path')
 const helmet = require('helmet')

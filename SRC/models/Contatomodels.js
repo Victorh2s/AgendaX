@@ -41,6 +41,9 @@ const ContatoSchema = new mongoose.Schema({
     // O e-mail precisa ser válido
     if(this.body.email && !validator.isEmail(this.body.email)) this.error.push('E-mail inválido');
     if(!this.body.nome) this.error.push('Nome é um campo obrigatório.');
+    if(!this.body.email && this.body.telefone) {
+        this.error.push('Pelo menos um contato precisa ser enviado: e-mail ou telefone.');
+    }
     };
 
     cleanUp () {
